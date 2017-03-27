@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="pop1.js"></script>
+</head>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		.box{
+			width: 500px;
+			height:100px;
+		}
+		.row{
+			width: 450px;
+			margin: 10px;
+		}
+
+		.left span, .tip{
+			color: red;
+		}
+
+		.left{
+			float: left;
+			width:100px;
+
+		}
+		.right{
+			float: right;
+			width: 20px;
+		}
+		.tip{
+			display:none;
+			margin-left: 20px;
+		}
+		.inputtext{
+			width: 500px;
+			height:100px;
+			margin: 10px;
+		}
+		.error{
+			float: left;
+			width: 10px;
+			height: 10px;
+			margin: 0 10px;
+			padding: 5px;
+			line-height: 5px;
+			background-color: red;
+			border-radius: 10px;
+			color: #fff;
+		}
+
+	</style>
+<body >
+<div   class="box">
+	
+	<div class="row">
+	    <div class="left">
+		 <p><span>* </span>请填写备注</p>
+		</div>
+		<div id="right" class="right"> (0/200)</div>
+	</div>
+	<textarea id="inputtext" oninput="change(this,200)" onpropertychange="change(this,200)" class="inputtext"  placeholder="最多输入200个字符" required></textarea>
+	<div id="tip" class="tip" > <div class="error">x</div>亲，此项内容填写长度不能超过200个字符哦!</div>
+
+</div>
+<script type="text/javascript">
+	function change(obj,max) {
+		var text=obj.value;
+		var len=text.length;
+		var ri=document.getElementById("right");
+		ri.innerText="("+len+"/"+max+")";
+		var tip=document.getElementById("tip");
+		if(len>max){
+			tip.style.display="block";
+		}else{
+			tip.style.display="none";
+		}
+	}
+</script>
+</body>
+</html>
